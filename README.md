@@ -1,100 +1,70 @@
 # Event Registration & Attendance Analytics
 
-End-to-end analytics project analyzing 2,180 event registrations across 6 marketing events to measure event performance, channel attribution, conversion funnels, and attendee engagement patterns.
+> End-to-end funnel analysis of 2,180 event registrations — channel attribution, conversion optimization, and cost-per-attendee modeling across 6 marketing events.
 
-## Background
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
 
-Having managed 16+ corporate events at Hilton's Conrad Washington DC and 8 annual programs at Virginia Tech (serving 500+ attendees), I built this project to demonstrate how event performance analytics can be done at scale using Python and SQL - moving from manual KPI tracking to automated, data-driven event intelligence.
+## Business Context
 
-## Key Findings
-
-| Metric | Value |
-|--------|-------|
-| Overall Attendance Rate | 67.2% |
-| No-Show Rate | 27.7% |
-| Best ROI Channel | Direct/Website ($1.40/attendee) |
-| Most Expensive Channel | LinkedIn Ads ($49.26/attendee) |
-| Best Performing Event | Industry Roadshow - East (71.6%) |
-| Survey Completion Rate | 43.3% |
-
-### Channel Attribution
-- **Referral** has the highest attendance rate (80.2%) and lowest cost ($1.93/attendee)
-- **Email Campaign** drives the most volume (34% of registrations) with good attendance (69.9%)
-- **LinkedIn Ads** are the most expensive channel at $49.26/attendee despite only 60.8% attendance
-- **Social Media** has the lowest attendance rate (51.4%) - needs better targeting
-
-### Registration Timing
-- Registrants who sign up 31-60 days early attend at 69.1%
-- Last-minute registrants (1-7 days) only attend at 53.5%
-- Early-bird campaigns could significantly reduce no-show rates
+Event marketers spend thousands per event but often lack clear visibility into which channels drive attendance, where registrants drop off, and what the true cost-per-attendee is. Built from experience managing 16+ corporate events at Hilton's Conrad Washington DC and 8 annual programs at Virginia Tech, this project demonstrates how event performance analytics can be done at scale.
 
 ## Dashboards
 
-### Attendance Rate by Event
-![Attendance Rate](dashboards/01_attendance_rate_by_event.png)
+| | |
+|:---:|:---:|
+| ![Attendance Rate](dashboards/01_attendance_rate_by_event.png) | ![Channel Performance](dashboards/02_channel_performance.png) |
+| **Attendance Rate by Event** | **Channel Performance** |
+| ![Cost per Attendee](dashboards/03_cost_per_attendee.png) | ![Conversion Funnel](dashboards/04_conversion_funnel.png) |
+| **Cost per Attendee by Channel** | **Registration-to-Attendance Funnel** |
+| ![Registration Timing](dashboards/05_registration_timing.png) | ![Industry Breakdown](dashboards/06_attendees_by_industry.png) |
+| **Registration Timing Impact** | **Attendees by Industry** |
 
-### Channel Performance: Volume vs Quality
-![Channel Performance](dashboards/02_channel_performance.png)
+## Key Findings
 
-### Cost per Attendee by Channel
-![Cost per Attendee](dashboards/03_cost_per_attendee.png)
-
-### Conversion Funnel
-![Funnel](dashboards/04_conversion_funnel.png)
-
-### Registration Timing Impact
-![Timing](dashboards/05_registration_timing.png)
-
-### Attendees by Industry
-![Industry](dashboards/06_attendees_by_industry.png)
-
-## Tools Used
-
-- **Python** (pandas, numpy, matplotlib, seaborn) - data generation, analysis, visualization
-- **SQL** - event performance queries, channel attribution, funnel analysis
-- **Power BI / Tableau** - interactive dashboards (screenshots in /dashboards)
+| Metric | Value | Insight |
+|--------|-------|---------|
+| Overall Attendance | **67.2%** | Across all 6 events |
+| Best Channel | **Referral (80.2%)** | Highest attendance at $1.93/attendee |
+| Most Expensive | **LinkedIn Ads ($49.26)** | Per attendee despite 60.8% attendance |
+| Early Registration | **69.1% attendance** | 31-60 days out |
+| Last-Minute Registration | **53.5% attendance** | 1-7 days out |
 
 ## Project Structure
 
 ```
 event-registration-analytics/
-├── README.md
 ├── data/
-│   └── event_registrations.csv        # 2,180 row dataset
-├── notebooks/
-│   └── event_analysis.py              # Full Python analysis
+│   └── event_registrations.csv           # 2,180-row registration dataset
 ├── scripts/
-│   ├── generate_data.py               # Dataset generator
-│   └── event_queries.sql              # SQL queries
-└── dashboards/
-    ├── 01_attendance_rate_by_event.png
-    ├── 02_channel_performance.png
-    ├── 03_cost_per_attendee.png
-    ├── 04_conversion_funnel.png
-    ├── 05_registration_timing.png
-    └── 06_attendees_by_industry.png
+│   ├── generate_data.py                  # Simulates event registration data
+│   └── event_queries.sql                 # SQL queries for funnel and channel analysis
+├── notebooks/
+│   └── event_analysis.py                 # Full analysis with visualizations
+├── dashboards/                           # 6 publication-ready visualizations
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ## How to Run
 
 ```bash
-# Generate the dataset
+git clone https://github.com/behaldeepanshi01-gif/event-registration-analytics.git
+cd event-registration-analytics
+pip install -r requirements.txt
 python scripts/generate_data.py
-
-# Run the analysis
 python notebooks/event_analysis.py
 ```
 
-## Recommendations
+## Tools Used
 
-1. **Shift budget to high-ROI channels** - Direct/Website and Referral have the lowest cost per attendee
-2. **Optimize LinkedIn Ads targeting** - high spend but only 60.8% attendance rate
-3. **Launch early-bird campaigns** - 30+ day registrants attend at 15% higher rates than last-minute signups
-4. **Reduce no-shows with reminders** - automated email/SMS in the final 7 days
-5. **Improve survey completion** - only 43.3% of attendees respond; incentivize with content access
+- **Python**: pandas, numpy, matplotlib, seaborn, scipy.stats
+- **SQL**: Event performance queries, channel attribution, funnel analysis
+- **Power BI / Tableau**: Interactive dashboard creation
 
 ## Author
 
-**Deepanshi Behal**
-- MBA, Virginia Tech | MS Data Analytics, McDaniel College (In Progress)
-- [LinkedIn](https://linkedin.com/in/bdeepanshi)
+**Deepanshi Behal** | [LinkedIn](https://linkedin.com/in/bdeepanshi) | [GitHub](https://github.com/behaldeepanshi01-gif)
