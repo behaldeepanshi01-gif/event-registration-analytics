@@ -13,17 +13,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+from pathlib import Path
+
+# Project root, so the script runs from any folder on any computer
+ROOT = Path(__file__).resolve().parents[1]
+(ROOT / "data").mkdir(exist_ok=True)
+(ROOT / "dashboards").mkdir(exist_ok=True)
 
 # ---- SETUP ----
 sns.set_theme(style="whitegrid")
 plt.rcParams["figure.figsize"] = (10, 6)
 plt.rcParams["figure.dpi"] = 150
 
-output_dir = "C:/Users/Deepanshi/Desktop/event-registration-analytics/dashboards"
+output_dir = str(ROOT / "dashboards")
 os.makedirs(output_dir, exist_ok=True)
 
 # ---- LOAD DATA ----
-df = pd.read_csv("C:/Users/Deepanshi/Desktop/event-registration-analytics/data/event_registrations.csv")
+df = pd.read_csv(str(ROOT / "data/event_registrations.csv"))
 df["registration_date"] = pd.to_datetime(df["registration_date"])
 df["event_date"] = pd.to_datetime(df["event_date"])
 df["days_before_event"] = (df["event_date"] - df["registration_date"]).dt.days

@@ -6,6 +6,12 @@ for Event Registration & Attendance Analytics project.
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
+from pathlib import Path
+
+# Project root, so the script runs from any folder on any computer
+ROOT = Path(__file__).resolve().parents[1]
+(ROOT / "data").mkdir(exist_ok=True)
+(ROOT / "dashboards").mkdir(exist_ok=True)
 
 np.random.seed(42)
 
@@ -140,7 +146,7 @@ for event_name, event_info in events.items():
 
 # ---- SAVE ----
 df = pd.DataFrame(rows)
-df.to_csv("C:/Users/Deepanshi/Desktop/event-registration-analytics/data/event_registrations.csv", index=False)
+df.to_csv(str(ROOT / "data/event_registrations.csv"), index=False)
 print(f"Dataset created: {len(df)} registrations")
 print(f"\nEvents:\n{df['event_name'].value_counts()}")
 print(f"\nAttendance Status:\n{df['attendance_status'].value_counts()}")
